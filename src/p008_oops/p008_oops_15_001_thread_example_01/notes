@@ -1,0 +1,32 @@
+Why Do We Need Multithreading?
+
+Examples:
+
+Downloading files while browsing.
+Playing music while typing.
+Chat applications.
+Online games.
+Banking systems.
+Web servers handling many users simultaneously.
+
+Interview Questions
+1. What is a thread?
+A thread is the smallest unit of execution within a process.
+
+2. What is multithreading?
+Multithreading is the ability to execute multiple threads concurrently 
+within a single process.
+
+3. What is the default thread in every Java program?
+The main thread.
+
+--------------
+
+ - Creating a thread using the Thread class
+ - Creating a thread using the Runnable interface
+ - Thread life cycle
+ - Thread methods (start(), run(), sleep(), join(), yield())
+ - Thread priorities
+ - Synchronization
+ - Inter-thread communication
+ - Deadlock

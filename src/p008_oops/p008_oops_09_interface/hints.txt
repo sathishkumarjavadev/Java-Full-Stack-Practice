@@ -1,0 +1,81 @@
+What is an Interface?
+
+An interface is a blueprint that contains method declarations which implementing classes must define.
+
+
+Abstract Class vs Interface
+
+This is one of the most frequently asked Java interview questions.
+
+Abstract Class
+1. 	Uses abstract keyword	
+2. Can have abstract and normal methods	
+3. Can have constructors	
+4. Supports single inheritance	
+5. Variables can be normal	
+
+Interface
+Uses interface keyword
+Mainly defines contracts
+Cannot have constructors
+Supports multiple inheritance
+Variables are public static final by default
+
+-----------------------------------------------------------
+
+Abstract Class Example
+abstract class Vehicle {
+
+    abstract void start();
+
+    void stop() {
+        System.out.println("Stopped");
+    }
+}
+
+-------------------------
+
+Interface Example
+interface Vehicle {
+
+    void start();
+}
+
+The implementing class must provide the method body.
+
+class Car implements Vehicle {
+
+    @Override
+    public void start() {
+        System.out.println("Car Started");
+    }
+}
+
+--------------------------------------------------
+
+
+Important Interview Point
+
+Why do we need Interfaces if we already have Abstract Classes?
+
+Because Java does not support multiple inheritance with classes.
+
+❌ Not Allowed
+
+class C extends A, B {
+}
+
+✅ Allowed using interfaces
+
+interface A {
+}
+
+interface B {
+}
+
+class C implements A, B {
+}
+
+This is the biggest reason interfaces exist.
+
+-----------------------------------------------

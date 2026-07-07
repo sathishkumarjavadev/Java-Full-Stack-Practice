@@ -1,0 +1,104 @@
+Object
+   │
+Throwable
+   │
+ ┌───────────────┐
+ │               │
+Error       Exception
+                 │
+        RuntimeException
+                 │
+    ArithmeticException
+    NullPointerException
+    ArrayIndexOutOfBoundsException
+    
+    
+    
+    Types of Exceptions
+1. Checked Exceptions
+
+The compiler checks these exceptions at compile time.
+
+Examples:
+
+IOException
+FileNotFoundException
+SQLException
+
+These must be handled using try-catch or declared with throws.
+
+2. Unchecked Exceptions
+
+These occur at runtime.
+
+Examples:
+
+ArithmeticException
+NullPointerException
+ArrayIndexOutOfBoundsException
+
+Handling them is optional, but recommended where appropriate.
+
+Common Runtime Exceptions
+ArithmeticException
+int a = 10 / 0;
+
+Reason: Division by zero.
+
+NullPointerException
+String name = null;
+
+System.out.println(name.length());
+
+Reason: Calling a method on a null reference.
+
+ArrayIndexOutOfBoundsException
+int[] arr = {10, 20, 30};
+
+System.out.println(arr[5]);
+
+Reason: Accessing an index outside the array's valid range.
+
+Why Do We Use Exception Handling?
+Prevents abrupt program termination.
+Allows the program to continue running.
+Helps provide meaningful error messages.
+Makes applications more robust and user-friendly.
+Interview Questions
+1. What is an exception?
+
+An exception is an event that interrupts the normal execution of a program during runtime.
+
+2. What is exception handling?
+
+Exception handling is the process of detecting and handling exceptions so the program can continue executing gracefully.
+
+3. What is the difference between checked and unchecked exceptions?
+Checked Exception	Unchecked Exception
+Checked at compile time	Occurs at runtime
+Must be handled or declared	Handling is optional
+Example: IOException	Example: NullPointerException
+
+
+
+
+
+
+3. How can you avoid NullPointerException?
+Initialize objects before using them.
+Check for null before calling methods.
+
+Example:
+
+if (name != null) {
+    System.out.println(name.length());
+} else {
+    System.out.println("Name is null.");
+}
+
+
+What is NumberFormatException?
+
+A NumberFormatException occurs when Java tries to 
+convert a String into a numeric type, but the String 
+does not contain a valid number.

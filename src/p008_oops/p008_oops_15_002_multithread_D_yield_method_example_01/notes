@@ -1,0 +1,28 @@
+What is yield()?
+
+yield() tells the JVM:
+
+"I'm willing to pause. If another thread of the same priority is ready, you may execute it."
+
+Notice the word may.
+
+The JVM can ignore this request.
+
+------------------
+
+Real-Life Example
+
+Imagine two students sharing one computer.
+
+Student A says:
+
+"You can use the computer first if you want."
+
+Student B may:
+
+Use it immediately ✅
+Say "No, you continue." ✅
+
+Nothing is guaranteed.
+
+That is exactly how yield() works.

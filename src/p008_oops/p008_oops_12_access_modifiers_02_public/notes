@@ -1,0 +1,40 @@
+1. public 
+2. private
+3. protected
+4. default
+
+
+Access rules:
+1. Same class
+2. Same package
+3. Different package
+4. Different package with inheritance
+
+
+What are Access Modifiers?
+
+Access Modifiers control the visibility (accessibility) of classes, variables, methods, and constructors.
+
+They determine who can access what.
+
+Imagine your house:
+
+Bedroom  → Only You (private)
+
+Living Room → Family (protected)
+
+Hall → Guests (default)
+
+Main Gate → Everyone (public)
+
+Java uses the same idea.
+
+Types of Access Modifiers
+
+Java has 4 access modifiers.
+
+Modifier	Accessible From
+public	Everywhere
+protected	Same package + Child classes
+default (no keyword)	Same package only
+private	Same class only
