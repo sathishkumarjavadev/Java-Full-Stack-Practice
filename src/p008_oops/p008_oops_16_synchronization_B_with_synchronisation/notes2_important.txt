@@ -1,0 +1,156 @@
+The One Sentence to Remember
+
+A synchronized method allows only one thread at a time to execute for the same object.
+
+
+Instead of memorizing the theory, memorize these 10 golden rules. If you remember these, you can answer 90% of synchronization interview questions.
+
+⭐ Synchronization Memory Sheet
+------------------------------------------------------------------------------------
+1. Why Synchronization?
+Multiple Threads
+        +
+Shared Data
+        =	
+Synchronization Required
+
+Memory Trick: One Data + Many Threads = Synchronization
+------------------------------------------------------------------------------------
+2. Why do we use Synchronization?
+Prevent Race Condition
+
+Remember:Synchronization protects shared data.
+------------------------------------------------------------------------------------
+3. What is a Race Condition?
+Two Threads
+↓
+Modify Same Data
+↓
+Wrong Result
+
+Memory Trick:Race Condition = Wrong Data
+------------------------------------------------------------------------------------
+4. What is Synchronization?
+One Lock
+↓
+One Thread
+↓
+Safe Data
+------------------------------------------------------------------------------------
+5. Lock Belongs To?
+
+⭐⭐⭐⭐⭐ Most Important
+
+Lock → Object
+
+NOT
+
+Lock → Method
+
+Remember:
+
+Object owns the lock, not the method.
+------------------------------------------------------------------------------------
+6. One Object Means?
+One Object
+↓
+One Lock
+↓
+One Thread
+------------------------------------------------------------------------------------
+7. Two Objects Mean?
+Two Objects
+↓
+Two Locks
+↓
+Two Threads Can Execute Simultaneously
+------------------------------------------------------------------------------------
+8. Without synchronized
+No Lock
+
+↓
+
+All Threads Enter
+
+↓
+
+Mixed Output
+
+↓
+
+Race Condition
+------------------------------------------------------------------------------------
+9. With synchronized
+Lock Acquired
+
+↓
+
+One Thread Executes
+
+↓
+
+Others Wait
+
+↓
+
+Lock Released
+
+↓
+
+Next Thread Executes
+------------------------------------------------------------------------------------
+10. Bathroom Analogy ⭐⭐⭐⭐⭐
+Bathroom = Shared Resource
+
+Door Lock = Object Lock
+
+Person = Thread
+
+Waiting Outside = BLOCKED State
+
+Remember this sentence:
+"One bathroom, one person. Everyone else waits."
+This analogy is almost exactly how synchronized methods work.
+
+Difference Table
+Without synchronized	With synchronized
+No Lock	Lock Available
+All Threads Execute	One Thread Executes
+Mixed Output	Ordered Output
+Race Condition	Safe Execution
+Interview Keywords
+------------------------------------------------------------------------------------
+Whenever someone says:
+
+Synchronization
+
+Immediately think:
+
+Shared Resource
+↓
+Object Lock
+↓
+One Thread
+↓
+Others Wait
+↓
+Race Condition Prevented
+------------------------------------------------------------------------------------
+⭐ The 5 Golden Sentences
+
+If you remember only these, you're in excellent shape.
+1. Synchronization prevents race conditions.
+2. Only one thread can execute a synchronized method at a time.
+3. The lock belongs to the object, not the method.
+4. One object has one lock.
+5. Without synchronized, multiple threads can access shared data simultaneously.
+My Favorite Memory Trick
+One Object
+     ↓
+One Lock
+     ↓
+One Thread
+     ↓
+Safe Data
+
+This single flow explains almost the entire synchronization concept.

@@ -1,0 +1,34 @@
+🧠 Deadlock Memory Sheet (Save This)
+Deadlock
+
+Definition:
+Two or more threads wait forever for each other's locks.
+
+Requirements:
+✅ Two or more threads
+✅ Two or more locks
+✅ Circular waiting
+
+Cause:
+Different lock acquisition order
+
+Prevention:
+Always acquire locks in the same order
+Interview Questions You Can Now Answer
+
+If an interviewer asks:
+
+❓What is Deadlock?
+
+A deadlock is a situation where two or more threads wait indefinitely for each other 
+to release resources, preventing all of them from continuing execution.
+
+❓What causes Deadlock?
+
+Multiple threads acquiring multiple locks in different orders, resulting in circular 
+waiting.
+
+❓How do you prevent Deadlock?
+
+Acquire locks in the same order, minimize nested locking, and keep the duration of 
+holding locks as short as possible.

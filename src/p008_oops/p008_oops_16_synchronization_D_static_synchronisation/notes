@@ -1,0 +1,320 @@
+
+Topic 12: Static Synchronization ⭐⭐⭐⭐⭐
+
+This topic is actually easy because you already understand object synchronization.
+
+The only new thing is:
+
+Instead of locking an object, Java locks the entire class.
+
+First, Let's Revise
+
+=======================================================================================
+Normal Synchronized Method
+
+class Printer {
+
+    public synchronized void print() {
+
+    }
+
+}
+
+Question:
+
+Where is the lock?
+
+Answer:
+
+On the object.
+
+Example:
+
+Printer p1 = new Printer();
+Printer p2 = new Printer();
+
+Visual:
+
+Printer p1
+   🔒 Lock 1
+
+Printer p2
+   🔒 Lock 2
+
+So both objects can execute simultaneously.
+=======================================================================================
+Static Synchronized Method
+class Printer {
+
+    public static synchronized void print() {
+
+    }
+
+}
+
+Notice the new keyword:
+
+static
+
+Now the lock is not on an object.
+
+It is on the Printer.class object.
+=======================================================================================
+What is Printer.class?
+
+Every Java class is loaded only once into memory.
+
+Think of it like this:
+
+Printer.class
+        🔒
+
+There is only one class lock, no matter how many objects you create.
+
+Example
+Printer p1 = new Printer();
+Printer p2 = new Printer();
+Printer p3 = new Printer();
+
+Normal synchronized:
+
+p1 → Lock 1
+
+p2 → Lock 2
+
+p3 → Lock 3
+
+Static synchronized:
+
+Printer.class
+
+       🔒
+
+Used by
+
+p1
+
+p2
+
+p3
+
+There is only one lock.
+
+***Real-Life Example****
+
+Imagine a college.
+
+There are many classrooms.
+
+Classroom A
+
+Classroom B
+
+Classroom C
+
+Each classroom has its own door.
+
+This is like object synchronization.
+
+Now imagine the college has one main gate.
+
+College Main Gate
+
+Every student must pass through it.
+
+This is like static synchronization.
+
+No matter which classroom they belong to, everyone shares the same main gate.
+
+=============================================================================
+
+Memory Trick ⭐⭐⭐⭐⭐
+Object Synchronization
+
+One Object
+↓
+One Lock
+
+
+Static Synchronization
+
+One Class
+↓
+One Lock
+
+================================================================================
+
+Real-Life Memory Trick
+
+Imagine a hotel.
+
+Object Synchronization
+Room 101 🚪
+
+Room 102 🚪
+
+Room 103 🚪
+
+Each room has its own key.
+
+Different people can use different rooms at the same time.
+
+Static Synchronization
+Hotel Main Entrance 🚪
+
+Only one person can pass through the entrance at a time.
+
+Every guest must use the same entrance.
+
+Interview Definition
+
+A static synchronized method locks the Class object instead of an instance (object), 
+ensuring that only one thread can execute any static synchronized method of that class at a time.
+
+
+====================================================================================
+
+| Feature                     | `sleep()`            | `wait()`                         |
+| --------------------------- | -------------------- | -------------------------------- |
+| Belongs to                  | `Thread`             | `Object`                         |
+| Releases Lock?              | ❌ No                | ✅ Yes                           |
+| Wakes Up                    | After specified time | After `notify()` / `notifyAll()` |
+| Used Inside `synchronized`? | Can be used          | Must be used                     |
+===================================================================================
+
+
+⭐ One Important Rule
+
+This is asked frequently in interviews.
+
+Can we call wait() anywhere?
+
+❌ No.
+
+You must call it inside a synchronized method or synchronized block.
+
+Example:
+
+synchronized(this) {
+    wait();
+}
+
+If you write:
+
+wait();
+
+outside synchronization, Java throws:
+
+java.lang.IllegalMonitorStateException
+
+Reason: The current thread doesn't own the object's lock, 
+so it isn't allowed to call wait().
+
+Why?
+
+Remember our bathroom analogy.
+
+To "leave the bathroom and release the lock" (wait()), you must already be inside the bathroom (inside the synchronized block).
+
+If you're standing outside, you cannot release a lock that you never acquired.
+
+That's why Java enforces this rule.
+====================================================================================
+
+Next Topic: wait() and notify() (Thread Communication)
+
+This is one of the most important topics in Java because it's the first time threads communicate with each other.
+
+Until now:
+
+sleep() → Thread waits by itself.
+join() → One thread waits for another thread to finish.
+synchronized → Threads compete for a lock.
+
+Now you'll learn something new:
+
+One thread tells another thread: "You can continue now."
+
+This is called inter-thread communication.
+===================================================================================
+
+One Important Difference
+
+Many beginners think:
+
+wait()
+=
+sleep()
+
+❌ Wrong.
+
+sleep()
+↓
+Wake up after Time
+
+wait()
+↓
+Wake up after Notification
+
+=================================================================================
+
+| `sleep()`                 | `wait()`                               |
+| ------------------------- | -------------------------------------- |
+| Time-based                | Notification-based                     |
+| Does not release the lock | Releases the lock                      |
+| `Thread` class            | `Object` class                         |
+| Resumes automatically     | Resumes after `notify()`/`notifyAll()` |
+=================================================================================
+
+The Word You Should Remember
+
+Interviewers often use this word:
+
+Polling
+
+sleep()
+
+↓
+
+Polling
+
+↓
+
+Repeated Checking
+
+Whereas:
+
+wait()
+
+↓
+
+Event Driven
+
+↓
+
+Wait for Notification
+⭐ Memory Trick
+
+sleep()
+↓
+Alarm Clock
+"I'll wake up after 5 minutes."
+
+
+wait()
+↓
+Phone Call
+"Call me when you're done."
+
+This is probably the easiest way to remember the difference.
+
+======================================================
+Memory Trick ⭐⭐⭐⭐⭐
+
+Remember this sentence:
+
+notify() wakes the thread, but it does not give it the lock immediately.
+
+The waiting thread must wait again until the notifying thread releases the lock.
+*******Notice the wording:Get ready, not start immediately.**************
+========================================================

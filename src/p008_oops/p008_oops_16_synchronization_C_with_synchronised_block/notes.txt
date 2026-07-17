@@ -1,0 +1,184 @@
+Why Do We Need a Synchronized Block?
+
+Suppose you have this method:
+
+public void printDocuments() {
+
+    // 1. Prepare document
+
+    // 2. Connect printer
+
+    // 3. Print pages
+
+    // 4. Disconnect printer
+
+}
+
+Question:
+
+Does the entire method need to be synchronized?
+
+Answer:
+
+❌ No.
+
+Only the part that accesses the shared resource (the printer) needs protection.
+
+Problem with Synchronized Method
+public synchronized void printDocuments() {
+
+    prepareDocument();      // Doesn't need synchronization
+
+    connectPrinter();       // Doesn't need synchronization
+
+    printPages();           // Needs synchronization
+
+    disconnectPrinter();    // Doesn't need synchronization
+
+}
+
+Here, the entire method is locked.
+
+Even the code that doesn't use shared data has to wait.
+
+This reduces performance.
+
+Better Solution: Synchronized Block
+
+Instead of locking the whole method, lock only the critical section.
+
+public void printDocuments() {
+
+    prepareDocument();
+
+    connectPrinter();
+
+    synchronized(this) {
+
+        printPages();
+
+    }
+
+    disconnectPrinter();
+
+}
+
+Only printPages() is protected.
+
+Everything else can execute without waiting.
+
+Syntax
+synchronized(lockObject) {
+
+    // Critical Section
+
+}
+
+The object inside the parentheses is the lock object.
+
+What Does this Mean?
+synchronized(this)
+
+this refers to:
+
+The current object.
+
+So this is equivalent to using the current object's lock.
+
+Visual Example
+
+Without synchronized block:
+
+Prepare Document
+↓
+Connect Printer
+↓
+Print Pages
+↓
+Disconnect
+
+Two threads may interfere during Print Pages.
+
+With synchronized block:
+
+Prepare Document      ← No Lock
+
+Connect Printer       ← No Lock
+
+LOCK
+
+Print Pages           ← Protected
+
+UNLOCK
+
+Disconnect            ← No Lock
+
+Only the critical section is locked.
+
+------------------------------------
+
+-----------------------------------------------
+Synchronized Method vs Synchronized Block
+---------------------------------------------------------
+Synchronized Method		|	Synchronized Block			|
+---------------------------------------------------------
+- Locks entire method	|- Locks only selected code		|
+- Simpler, Less flexible|- More flexible				|
+- Lower performance		|- Better performance			|
+- Used for simpler cases|- Used more in real projects	|
+---------------------------------------------------------
+
+
+
+===============================================================
+
+Real-Life Example
+
+Imagine a bank.
+
+Inside the bank:
+
+Customer enters
+↓
+Takes token
+↓
+Waits
+↓
+Withdraws money
+↓
+Leaves
+
+Does the bank need to lock the entire building?
+❌ No.
+
+Only the cash counter needs protection.
+So:
+Walking inside      → No Lock
+Waiting             → No Lock
+Cash Counter        → LOCK
+Leaving             → No Lock
+
+This is exactly what a synchronized block does.
+
+Memory Trick
+Synchronized Method
+↓
+Whole House Locked
+
+Synchronized Block
+↓
+Only Bedroom Locked
+
+
+=================================================================
+Interview Tip ⭐⭐⭐⭐⭐
+
+If an interviewer asks:
+
+"Does synchronized guarantee which thread executes first?"
+
+The correct answer is:
+
+No. synchronized only guarantees that one thread at a time can execute the synchronized section. 
+The JVM scheduler decides which thread acquires the lock first.
+==================================================================

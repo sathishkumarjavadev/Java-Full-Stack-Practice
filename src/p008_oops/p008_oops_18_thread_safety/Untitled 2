@@ -1,0 +1,175 @@
+What is Thread Safety?
+Interview Definition
+
+Thread Safety means multiple threads can access and modify shared data correctly 
+without causing inconsistent or unexpected results.
+
+===============================================================================
+Real-Life Example
+
+Imagine you and your friend have a bank account.
+
+Current Balance:
+
+₹1000
+
+Both of you try to withdraw:
+
+₹500
+
+at exactly the same time.
+
+Case 1 - Without Thread Safety
+Balance = ₹1000
+
+Thread 1 checks:
+
+Balance = ₹1000
+
+Thread 2 also checks:
+
+Balance = ₹1000
+
+Both think money is available.
+
+Both withdraw ₹500.
+
+Sometimes the balance becomes incorrect because both threads read and update the shared data simultaneously.
+
+This is a Race Condition.
+
+Case 2 - With Thread Safety
+
+Thread 1:
+
+Checks Balance
+
+↓
+
+Withdraws
+
+↓
+
+Updates Balance
+
+↓
+
+Releases Lock
+
+Only then...
+
+Thread 2 starts.
+
+Now the balance remains correct.
+===================================================================================
+
+Real-Life Example
+
+Imagine you and your friend have a bank account.
+
+Current Balance:
+
+₹1000
+
+Both of you try to withdraw:
+
+₹500
+
+at exactly the same time.
+
+Case 1 - Without Thread Safety
+Balance = ₹1000
+
+Thread 1 checks:
+
+Balance = ₹1000
+
+Thread 2 also checks:
+
+Balance = ₹1000
+
+Both think money is available.
+
+Both withdraw ₹500.
+
+Sometimes the balance becomes incorrect because both threads read and update the shared data simultaneously.
+
+This is a Race Condition.
+
+Case 2 - With Thread Safety
+
+Thread 1:
+
+Checks Balance
+
+↓
+
+Withdraws
+
+↓
+
+Updates Balance
+
+↓
+
+Releases Lock
+
+Only then...
+
+Thread 2 starts.
+
+Now the balance remains correct.
+
+=================================================================================
+
+Haven't We Already Learned This?
+
+Yes!
+
+Think about our synchronization example.
+
+public synchronized void print() {
+
+}public synchronized void print() {
+
+}
+
+==============================================================================
+Race Condition
+
+↓
+
+Use synchronized
+
+↓
+
+Thread Safety Achieved
+================================================================
+🧠 Final Memory Sheet for Multithreading
+
+This is the sheet I want you to remember before interviews.
+
+Thread
+   ↓
+Multiple threads execute
+
+↓
+
+Race Condition
+(Multiple threads modify the same data)
+
+↓
+
+Synchronization
+(Only one thread enters the critical section)
+
+↓
+
+Thread Safety
+(Data remains correct)
+
+↓
+
+Deadlock
+(Occurs if locks are acquired incorrectly)
+======================================================
