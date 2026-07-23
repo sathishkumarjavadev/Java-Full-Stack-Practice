@@ -1,0 +1,192 @@
+What is a Collection?
+Interview Definition
+
+A Collection is a framework that provides classes and interfaces to store,
+manage, and manipulate groups of objects dynamically.
+
+Simple Definition
+
+Collections are smart containers.
+
+They can:
+
+Grow automatically.
+Shrink automatically.
+Insert elements easily.
+Delete elements easily.
+Search efficiently (depending on the implementation).
+Provide many built-in methods.
+
+Array
+↓
+Fixed Size
+
+Collection
+↓
+Dynamic Size
+
+====================================================================
+
+Interview Question
+Why was the Collection Framework introduced?
+
+Answer:
+
+To overcome the limitations of arrays, such as fixed size and difficult insertion/deletion operations.
+
+## Quick Comparison
+
+## Array | Collection |
+
+Fixed size + high performance | Dynamic size |
+Difficult insertion/deletion | Easy insertion/deletion |
+Limited utility methods | Rich built-in methods |
+Lower flexibility | Higher flexibility |
+=============================================================
+
+If an interviewer asks:
+
+Why do arrays still exist if Collections are available?
+
+A strong answer is:
+
+Arrays are faster, use less memory, and are ideal when the number of
+elements is fixed. Collections are preferred when the size needs to
+change dynamically.
+
+---
+
+Iterable
+│
+Collection
+│
+┌───┼──────────┐
+│ │ │
+List Set Queue
+│
+ArrayList
+LinkedList
+Vector
+Stack
+
+Map
+HashMap
+LinkedHashMap
+TreeMap
+
+---
+
+                        Iterable (Interface)
+                               │
+                               ▼
+                    Collection (Interface)
+                  ┌────────┼─────────┐
+                  │        │         │
+                  ▼        ▼         ▼
+              List      Set      Queue
+           (Interface)(Interface)(Interface)
+              │          │          │
+      ┌───────┼──────┐   │      ┌───┴────────┐
+      │       │      │   │      │            │
+      ▼       ▼      ▼   ▼      ▼            ▼
+
+ArrayList LinkedList Vector HashSet PriorityQueue ArrayDeque
+│ │
+▼ ▼
+Stack LinkedHashSet
+│
+▼
+TreeSet
+
+---
+
+Map (Separate Interface)
+│
+┌────┼──────────┐
+▼ ▼ ▼
+HashMap LinkedHashMap TreeMap
+
+---
+
+Map is a separate interface.
+Map stores key-value pairs.
+So Map has a different design.
+
+Interview Questions
+Why is Map not part of Collection?
+
+Answer:
+
+Because Collection stores individual objects, while Map stores key-value pairs.
+
+Which interface is at the top?
+
+Answer:
+
+Iterable
+
+Which interfaces extend Collection?
+
+Answer:
+
+List
+Set
+Queue
+
+---
+
+Memory Sheet ⭐⭐⭐⭐⭐
+Iterable
+│
+Collection
+│
+┌───┼───────┐
+│ │ │
+List Set Queue
+
+Map (Separate)
+
+This diagram alone answers many interview questions.
+
+---
+
+                         Iterable
+                             │
+                             ▼
+                     Collection
+                  ┌─────┼─────┐
+                  │     │     │
+                 List  Set   Queue
+                  │
+      ┌───────────┼────────────┐
+      │           │            │
+
+ArrayList LinkedList Vector
+│
+Stack
+
+Set
+├── HashSet
+├── LinkedHashSet
+└── TreeSet
+
+Queue
+├── PriorityQueue
+└── ArrayDeque
+
+Map (Separate)
+├── HashMap
+├── LinkedHashMap
+└── TreeMap
+
+---
+
+What is Iterable?
+Interview Definition
+
+Iterable is the top-level interface of the Collection Framework
+that allows objects to be traversed (iterated) one element at a time.
+
+Simple definition:
+
+Iterable allows us to visit elements one by one.

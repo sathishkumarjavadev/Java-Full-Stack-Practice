@@ -10,6 +10,6 @@ public static void main(String[] args) {
 		System.out.println(numbers[i]);
 		}
 	System.out.println("sum = "+sum);
-	System.out.println(numbers.length);
+	System.out.println("total number of elements present in the numbers is " + numbers.length);
 }
 }
