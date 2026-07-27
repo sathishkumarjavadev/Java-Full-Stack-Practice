@@ -13,7 +13,8 @@ public class Student {
 		this.id = id;
 		this.name = name;
 	}
-	void display() {
+	void display() 
+	{
 		System.out.println("id= "+id+" name= "+name);
 	}
 //the below boolean function is written is for the "contains" method
