@@ -5,12 +5,15 @@ import java.util.ArrayList;
 public class ArrayListWithoutGetterSetter {
 
 	    public static void main(String[] args) {
-
+//hints to remember ==> creating and storing the objects in the arraylist
 	        // Creating ArrayList
 	        ArrayList<Student> students = new ArrayList<>();
 
 	        // Creating Student Objects
-	        Student s1 = new Student(101, "Sathish");
+	        Student s1 = new Student(0, null);
+	        s1.id=32;//we can also update or change the value
+	        s1.id=33;
+	        s1.name="sathish";
 	        Student s2 = new Student(102, "Rahul");
 	        Student s3 = new Student(103, "Kumar");
 	        Student s4 = new Student(104, "Arun");
