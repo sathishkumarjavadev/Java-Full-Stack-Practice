@@ -1,0 +1,31 @@
+What is JDBC?
+
+JDBC stands for:
+
+Java Database Connectivity
+
+It is the API that allows a Java program to communicate with a database like MySQL.
+
+Without JDBC:
+
+Java Program
+
+↓
+
+Cannot talk to MySQL
+
+With JDBC:
+
+Java Program
+      │
+      ▼
+JDBC Driver
+      │
+      ▼
+MySQL Database
+
+Think of JDBC as a translator.
+
+Java speaks Java.
+MySQL speaks SQL.
+JDBC translates between them.
