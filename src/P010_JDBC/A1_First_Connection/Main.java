@@ -13,20 +13,20 @@ public class Main {
 //			step 1: load the driver
 			Class.forName("com.mysql.cj.jdbc.Driver");
 //			step 2: create connection
-			Connection con = DriverManager.getConnection(
+			Connection drvobj = DriverManager.getConnection(
 					"jdbc:mysql://localhost:3306/mysql","root","root");
 			System.out.println("connected");
 //			step3: executing the statement
-			Statement stmt = con.createStatement();
+			Statement sobj = drvobj.createStatement();
 			//creating the database
 			String Query = "CREATE DATABASE jdbc_connection_final";
 			
-			stmt.executeUpdate(Query);
+			sobj.executeUpdate(Query);
 			System.out.println("Database created successfully");
 				
 //			step 3: close connection
-			stmt.close();
-			con.close();
+			sobj.close();
+			drvobj.close();
 					
 		} catch (Exception e) {
 			// TODO: handle exception
