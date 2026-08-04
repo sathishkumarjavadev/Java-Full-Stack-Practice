@@ -3,6 +3,7 @@ package P010_JDBC.F1_Employee_Management_System;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.Scanner;
 
 public class Main {
@@ -18,13 +19,15 @@ public class Main {
 			System.out.println("==============================");
 
 			System.out.println("1. Add Employee");
-			System.out.println("2. View Employees");
-			System.out.println("3. Search Employee");
-			System.out.println("4. Update Employee");
-			System.out.println("5. Delete Employee");
-			System.out.println("6. Exit");
-
+			System.out.println("2. Search Employee by ID");
+			System.out.println("3. Search Employee by Name");
+			System.out.println("4. View All Employees");
+			System.out.println("5. Update Employee by ID");
+			System.out.println("6. Delete Employee by ID");
+			System.out.println("7. Exit");
+			
 			System.out.print("Enter Choice : ");
+
 			int choice = scobj.nextInt();
 			
 			switch(choice)
@@ -59,12 +62,93 @@ public class Main {
 				break;
 
 			case 2:
+				try {
+					Class.forName("com.mysql.cj.jdbc.Driver");
+					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/KGF_DB","root","root");
+					System.out.println("Enter the Employeeid (Note: searching using employee id only, because it is unique ) :");
+					int id = scobj.nextInt();
+					String query = "select * from kgf_table where employeeid = ?";
+					PreparedStatement psobj = con.prepareStatement(query);
+					psobj.setInt(1, id);
+					ResultSet rows = psobj.executeQuery();
+					System.out.println("----------------------------");
+					System.out.println("Employee ID\tEmployee Name");
+					System.out.println("----------------------------");
+					boolean found = false;
+					while(rows.next())
+					{
+						found = true;
+						System.out.println(rows.getInt("employeeid")+"\t\t"+rows.getString("employeename"));
+					}
+					if(!found)
+					{
+						System.out.println("employee not found");
+					}
+					rows.close();
+					psobj.close();
+					con.close();
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
 			    break;
-
 			case 3:
+				try {
+					Class.forName("com.mysql.cj.jdbc.Driver");
+					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/KGF_DB","root","root");
+					System.out.println("enter employee name");
+					String name = scobj.next();
+					String query = "select * from kgf_table where employeename = ?";
+					PreparedStatement psobj = con.prepareStatement(query);
+					psobj.setString(1,name);
+					ResultSet rows = psobj.executeQuery();
+					System.out.println("----------------------------");
+					System.out.println("Employee ID\tEmployee Name");
+					System.out.println("----------------------------");
+					boolean found = false;
+					while (rows.next()) {
+						found = true;
+						System.out.println(rows.getInt("employeeid")+"\t\t"+rows.getString("employeename"));
+					}
+					if(!found)
+					{
+						System.out.println("employee not found");
+					}
+					rows.close();
+					psobj.close();
+					con.close();
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
 			    break;
 
 			case 4:
+				try {
+					Class.forName("com.mysql.cj.jdbc.Driver");
+					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/KGF_DB","root","root");
+					String query = "select * from kgf_table";
+					PreparedStatement psobj = con.prepareStatement(query);
+					ResultSet rows = psobj.executeQuery();
+					System.out.println("----------------------------");
+					System.out.println("Employee ID\tEmployee Name");
+					System.out.println("----------------------------");
+					boolean allEmployees = false;
+					while(rows.next()) {
+						allEmployees = true;
+						System.out.println(rows.getInt("employeeid")+"\t\t"+rows.getString("employeename"));
+					}
+					if(!allEmployees)
+					{
+						System.out.println("empty list or no employees were found ");
+					}
+					rows.close();
+					psobj.close();
+					con.close();
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
 			    break;
 
 			case 5:
