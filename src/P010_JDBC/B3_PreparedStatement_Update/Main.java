@@ -1,4 +1,4 @@
-package P010_JDBC.A8_PreparedStatement_Insert;
+package P010_JDBC.B3_PreparedStatement_Update;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,12 +11,17 @@ public class Main {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection drvobj = DriverManager.getConnection("jdbc:mysql://localhost:3306/KGF_DB","root","root");
-			String query = "INSERT INTO KGF_TABLE VALUES (?,?)";
+			String query = "UPDATE KGF_TABLE SET employeeid = ? ,employeename = ? where employeeid = ?";
 			PreparedStatement sobj = drvobj.prepareStatement(query);
-			sobj.setInt(1,108);
-			sobj.setString(2,"sathtitih");
-			sobj.executeUpdate();
-			System.out.println("executed successfully");
+			// Placeholder 1 -> New employeeid
+			// Placeholder 2 -> New employeename
+			// Placeholder 3 -> Existing employeeid (used in WHERE clause)
+			sobj.setInt(1, 2203);
+			sobj.setString(2, "Arun");
+			sobj.setInt(3, 203);
+			int  rs = sobj.executeUpdate();
+			System.out.println(rs+" executed successfully");
+			
 			sobj.close();
 			drvobj.close();
 		} catch (Exception e) {
