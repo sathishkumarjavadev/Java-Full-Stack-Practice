@@ -122,7 +122,6 @@ public class Main {
 					e.printStackTrace();
 				}
 			    break;
-
 			case 4:
 				try {
 					Class.forName("com.mysql.cj.jdbc.Driver");
@@ -150,20 +149,69 @@ public class Main {
 					e.printStackTrace();
 				}
 			    break;
-
 			case 5:
+			    try {
+			        Class.forName("com.mysql.cj.jdbc.Driver");
+			        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/KGF_DB","root","root");
+			        System.out.print("Enter Employee ID to Update : ");
+			        int id = scobj.nextInt();
+			        System.out.print("Enter New Employee Name : ");
+			        String name = scobj.next();
+			        String query = "UPDATE kgf_table SET employeename = ? WHERE employeeid = ?";
+			        PreparedStatement psobj = con.prepareStatement(query);
+			        psobj.setString(1, name);
+			        psobj.setInt(2, id);
+			        int rows = psobj.executeUpdate();
+			        if (rows > 0) {
+			            System.out.println("----------------------------");
+			            System.out.println("Employee Updated Successfully.");
+			            System.out.println("----------------------------");
+			        } else {
+			            System.out.println("----------------------------");
+			            System.out.println("Employee Not Found.");
+			            System.out.println("----------------------------");
+			        }
+			        psobj.close();
+			        con.close();
+			    } catch (Exception e) {
+			        e.printStackTrace();
+			    }
 			    break;
-
 			case 6:
+				try {
+					Class.forName("com.mysql.cj.jdbc.Driver");
+					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/KGF_DB","root","root");
+					System.out.println("Enter Employee ID to delete :");
+					int id = scobj.nextInt();
+					String query = "Delete from kgf_table where employeeid=?";
+					PreparedStatement psobj = con.prepareStatement(query);
+					psobj.setInt(1, id);
+					int rows = psobj.executeUpdate();
+					if(rows>0) {
+						System.out.println("----------------------------");
+			            System.out.println("Employee Deleted Successfully.");
+			            System.out.println("----------------------------");
+			        } else {
+			            System.out.println("----------------------------");
+			            System.out.println("Employee Not Found.");
+			            System.out.println("----------------------------");
+			        }
+					psobj.close();
+					con.close();
+				}
+					catch (Exception e) {
+					e.printStackTrace();
+				}break;
+			case 7:
 			    System.out.println("Thank You");
 			    System.exit(0);
 			    default:
 			    	System.out.println("enter the choice correctly");
 			
 			}
+			scobj.close();
 		}
 	}
-	
 }
 /*
 =============================
