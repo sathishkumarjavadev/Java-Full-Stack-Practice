@@ -209,7 +209,6 @@ public class Main {
 			    	System.out.println("enter the choice correctly");
 			
 			}
-			scobj.close();
 		}
 	}
 }
