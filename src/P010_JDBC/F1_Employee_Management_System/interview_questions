@@ -1,0 +1,163 @@
+🎤 Top JDBC Interview Questions
+
+These are some of the most frequently asked JDBC interview questions. Since you've completed the practical part, these should be easy to understand.
+
+1. What is JDBC?
+
+Answer:
+
+JDBC (Java Database Connectivity) is an API that allows Java applications to connect to databases, execute SQL queries, and process the results.
+
+2. What are the steps to connect Java with MySQL?
+1. Load the Driver
+
+2. Create Connection
+
+3. Create Statement / PreparedStatement
+
+4. Execute Query
+
+5. Process Result
+
+6. Close Resources
+3. Difference between Statement and PreparedStatement?
+Statement	PreparedStatement
+Not precompiled	Precompiled
+Slower	Faster
+SQL Injection possible	Prevents SQL Injection
+Less efficient	More efficient
+
+Interview Answer:
+
+"PreparedStatement is preferred because it is faster, reusable, and protects against SQL Injection."
+
+4. Difference between executeQuery() and executeUpdate()?
+executeQuery()	executeUpdate()
+Used for SELECT	Used for INSERT, UPDATE, DELETE
+Returns ResultSet	Returns int (affected rows)
+5. What is ResultSet?
+
+Answer:
+
+A ResultSet stores the records returned by a SELECT query.
+
+6. Why do we use PreparedStatement?
+
+Answer:
+
+Prevents SQL Injection
+Improves performance
+Supports placeholders (?)
+Easy to reuse
+7. What is SQL Injection?
+
+Example:
+
+String query = "SELECT * FROM users WHERE username='" + user + "'";
+
+A malicious user could change the SQL query by entering special SQL commands.
+
+PreparedStatement prevents this by treating user input as data, not SQL code.
+
+8. What is Batch Processing?
+
+Executing multiple SQL statements together in a single batch to improve performance.
+
+Methods:
+
+addBatch()
+
+executeBatch()
+
+clearBatch()
+9. What is a Transaction?
+
+A transaction is a group of SQL operations that execute as one unit.
+
+Methods:
+
+setAutoCommit(false);
+
+commit();
+
+rollback();
+10. What is CallableStatement?
+
+It is used to call stored procedures from Java.
+
+Example:
+
+CallableStatement cs =
+con.prepareCall("{CALL GET_EMPLOYEE()}");
+11. Difference between Statement, PreparedStatement, and CallableStatement?
+Statement	PreparedStatement	CallableStatement
+Executes normal SQL	Executes parameterized SQL	Executes Stored Procedures
+12. What is DAO?
+
+DAO = Data Access Object
+
+Its responsibility is to perform database operations such as:
+
+Add
+Update
+Delete
+Search
+13. Why should resources be closed?
+
+To prevent:
+
+Memory leaks
+Connection leaks
+Performance issues
+
+Always close:
+
+ResultSet
+
+↓
+
+PreparedStatement
+
+↓
+
+Connection
+14. What does executeUpdate() return?
+
+It returns the number of rows affected.
+
+Example:
+
+int rows = ps.executeUpdate();
+
+If:
+
+rows = 1
+
+One row was updated.
+
+If:
+
+rows = 0
+
+No matching record was found.
+
+15. Which JDBC interface did you use in your project?
+
+You can confidently answer:
+
+DriverManager
+Connection
+PreparedStatement
+ResultSet
+CallableStatement
+⭐ Interview Tip
+
+If an interviewer asks:
+
+"Have you worked with JDBC?"
+
+You can confidently say:
+
+"Yes. I built a menu-driven Employee Management System using JDBC. It supports Add, Search by ID, Search by Name, View All, Update, and Delete operations. I also practiced Batch Processing, Transactions, and CallableStatement with stored procedures."
+
+That answer is much stronger than simply saying "I know JDBC."

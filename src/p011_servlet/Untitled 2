@@ -1,0 +1,386 @@
+one servlet object for all users
+User 1
+    │
+User 2
+    │
+User 3
+    │
+User 4
+    │
+    ▼
+One Servlet Object
+    │
+  JDBC
+    │
+ MySQL
+ 
+ 
+  
+short hints to remember
+
+"Servlet allows a Java application to receive requests from a web browser and send responses back to the browser instead of using the console."
+ 
+ Without Servlet: User interacts through the console.
+With Servlet: User interacts through a web browser.
+
+Before Writing Code
+
+We'll first understand these four terms:
+
+Browser
+↓
+Web Server
+↓
+Servlet
+↓
+Database
+-------------------------------------------------------------------------
+If you understand these four, Servlets become very easy
+Imagine This...
+
+You have already created:
+
+Employee Management System
+
+It runs like this:
+
+Java Program
+↓
+Console
+↓
+Scanner
+↓
+User Input
+↓
+Database
+↓
+Output
+
+This works only on your own computer.
+
+But what if...
+
+Your manager says:
+
+"I don't want a console application."
+
+He wants this:
+
+Browser
+↓
+http://localhost:8080
+↓
+Employee Management System
+
+Now anyone can open the application in a browser.
+
+Question:
+
+Can Scanner read data from Chrome?
+
+No.
+
+Scanner reads only from the console.
+
+So we need another way to receive data.
+
+That is why Servlets were created.
+
+Console Application
+User
+↓
+Keyboard
+↓
+Scanner
+↓
+Java Program
+↓
+Database
+------------------------
+Web Application
+
+User
+↓
+Browser
+↓
+Servlet
+↓
+Database
+
+Notice the difference.
+
+Servlet replaces Scanner.
+
+What is a Servlet?
+Simple Definition
+A Servlet is a Java program that runs inside a web server (like Apache Tomcat) and handles requests from a browser.
+
+Real-Life Example
+
+Imagine a restaurant.
+
+Customer
+↓
+Waiter
+↓
+Kitchen
+↓
+Waiter
+↓
+Customer
+
+Here,
+
+Customer = Browser
+
+Waiter = Servlet
+
+Kitchen = Database
+
+The waiter receives the order, gives it to the kitchen, collects the food, and returns it.
+
+Similarly,
+
+Browser
+↓
+Servlet
+↓
+Database
+↓
+Servlet
+↓
+Browser
+
+Browser Request
+
+Suppose you type:
+
+http://localhost:8080/login
+
+The browser sends a request.
+
+Browser
+↓
+Request
+↓
+Servlet
+
+Servlet processes it.
+
+Servlet
+↓
+Database
+↓
+Gets Result
+↓
+Returns Response
+↓
+Browser
+
+--------------------------
+What You'll Learn in Servlets
+Servlet Introduction
+↓
+Tomcat Server
+↓
+HTTP Request
+↓
+HTTP Response
+↓
+doGet()
+↓
+doPost()
+↓
+Request Object
+↓
+Response Object
+↓
+Form Handling
+↓
+Servlet Lifecycle
+↓
+MVC
+------------------------------------------------
+
+*************************important concept************************
+Browser
+↓
+Tomcat
+↓
+Servlet
+↓
+JDBC
+↓
+MySQL
+↓
+JDBC
+↓
+Servlet
+↓
+Tomcat
+↓
+Browser
+-------------------------------------------
+
+What is Tomcat?
+
+Simple definition:
+
+Apache Tomcat is a web server and servlet container that runs Java web applications.
+
+--------------------------------------------------
+
+Servlet Lifecycle
+Servlet Created
+↓
+init()
+↓
+service()
+↓
+destroy()
+
+Only three methods.
+
+
+1️ init() --> Runs only once.(born)
+2 service() --> Runs for every browser request.(work)
+3 destroy() --> Runs only once.(die)
+
+Tomcat Starts
+↓
+Creates Servlet Object
+↓
+init()
+↓
+Browser Request
+↓
+service()
+↓
+Browser Request
+↓
+service()
+↓
+Browser Request
+↓
+service()
+↓
+Tomcat Stops
+↓
+destroy()
+---------------------------------------
+
+GET  → doGet()
+
+POST → doPost()
+
+------------------------------------
+
+Next Topic: HttpServletRequest and HttpServletResponse
+
+These two are very important because they represent the communication between the browser and Servlet.
+
+Think of them as:
+Browser
+   │
+   │  Request
+   ▼
+Servlet
+   │
+   │  Response
+   ▼
+Browser
+
+The Servlet needs objects to work with these two directions:
+
+HttpServletRequest
+        ↓
+Browser → Servlet
+
+
+HttpServletResponse
+        ↓
+Servlet → Browser
+
+We'll now learn HttpServletRequest first, including how to receive data such as an employee ID or employee name from the browser.
+
+---------------------------------------------
+HttpServletRequest
+
+We know:
+
+Browser
+   ↓
+Request
+   ↓
+Servlet
+
+The Servlet needs a way to receive and read the information sent by the browser.
+
+That's the job of:
+
+HttpServletRequest
+Simple Definition
+
+HttpServletRequest represents the request sent from the browser/client to the Servlet.
+
+It allows the Servlet to read things like:
+
+Form data
+Query parameters
+Request headers
+HTTP method
+Cookies
+Session information
+
+              REQUEST
+Browser ─────────────────→ Servlet
+          HttpServletRequest
+
+
+              RESPONSE
+Browser ←───────────────── Servlet
+          HttpServletResponse
+
+----------------------------
+
+getParameter() → returns always String , even if the input is integer, eg: input 1 , output "1"
+
+
+--------------------------------------------------------------------------------------------------------
+
+HttpServletResponse
+
+We already learned:
+
+HttpServletResponse
+        ↓
+Servlet → Browser
+
+HttpServletResponse is used by the Servlet to send a response back to the browser.
+
+------------------------------------------------------------------------------------------------------
+
+System.out.println()
+        ↓
+Console
+
+out.println()
+        ↓
+Browser
+----------------------------------
+
+| Code                     | Direction         | Purpose       |
+| ------------------------ | ----------------- | ------------- |
+| `request.getParameter()` | Browser → Servlet | **Read** data |
+| `response.getWriter()`   | Servlet → Browser | **Send** data |
+
+-------------------------------------------
+        BROWSER
+        ↕
+   ┌─────────────┐
+   │   Servlet   │
+   └─────────────┘
+
+request  → information coming IN
+response → information going OUT
+-------------------------------------------
