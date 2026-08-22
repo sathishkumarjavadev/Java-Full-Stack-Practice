@@ -35,9 +35,7 @@ public class B02_Order_Agnostic_BS {
 				else {
 					start = mid + 1;
 				}
-				
-				
-			}
+				}
 		}
 		return -1;		
 	}
