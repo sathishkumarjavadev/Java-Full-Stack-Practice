@@ -7,7 +7,7 @@ public class A1_Bubble_Sort {
 		int arr[] = {8,6,3,7,5,2,9};
 		bubble(arr);
 		}
-	
+//	i = number of elements to get sorted , j = number of times the one element to compare with the other one 
 	static void bubble(int arr[])
 	{
 		for(int i=0;i<arr.length;i++) {//7,6,5,4,3,2,1 length inc
@@ -26,7 +26,7 @@ public class A1_Bubble_Sort {
 		System.out.println(Arrays.toString(arr));
 	}
 }
-//hints: in every step we are comparing the adjacent elements
+//hints: in every step we are comparing the adjacent elements and pushing them to the last to first index
 //in the first iteration we will get the first largest element at the end 
 //it will sort the element in the reverse order only
 //it is also known as sinking sort 
