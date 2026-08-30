@@ -50,5 +50,7 @@ public class B1_Selection_Sort {
  best and worst case are same
  
  hint : find the max element and put it in the last 
+ 
+ for every iteration , the max index only stored , not the value
   
  */
