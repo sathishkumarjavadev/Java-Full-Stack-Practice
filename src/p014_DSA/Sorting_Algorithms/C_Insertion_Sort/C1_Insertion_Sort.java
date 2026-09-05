@@ -2,7 +2,7 @@ package p014_DSA.Sorting_Algorithms.C_Insertion_Sort;
 
 import java.util.Arrays;
 
-public class C_Insertion_Sort 
+public class C1_Insertion_Sort 
 {	
 	public static void main(String[] args) 
 	{
@@ -18,8 +18,8 @@ public class C_Insertion_Sort
 				if(arr[j] < arr[j-1])
 				{
 					int temp = arr[j];
-	                arr[j] = arr[j - 1];
-	                arr[j - 1] = temp;
+	                arr[j] = arr[j-1];
+	                arr[j-1] = temp;
 				}
 				else
 				{
