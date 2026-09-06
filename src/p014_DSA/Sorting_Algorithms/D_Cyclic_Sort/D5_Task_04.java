@@ -1,9 +1,6 @@
 package p014_DSA.Sorting_Algorithms.D_Cyclic_Sort;
 //find all the duplicates
-
-
 import java.util.*;
-
 public class D5_Task_04 {
 	
 	public static void main(String[] args) {
@@ -25,24 +22,20 @@ public class D5_Task_04 {
 					i++;
 				}
 			}
-			
 			List<Integer> ans = new ArrayList<>();
 			for(int index = 0 ; index<arrr.length;index++)
 			{
 				if(arrr[index]!=index+1)
-{
-	ans.add(arrr[index]);
-	
-}
-			}
+				{
+					ans.add(arrr[index]);
+					}
+				}
 			return ans;
-	}
+			}
 	static void swap(int [] arr, int first , int second)
 	{
 		int temp = arr[first];
 		arr[first] = arr[second];
 		arr[second] = temp;
-	
- 
-}
-}
+		}
+	}
