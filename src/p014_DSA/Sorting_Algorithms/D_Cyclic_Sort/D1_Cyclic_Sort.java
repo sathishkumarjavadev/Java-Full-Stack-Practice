@@ -1,5 +1,4 @@
 package p014_DSA.Sorting_Algorithms.D_Cyclic_Sort;
-
 import java.util.Arrays;
 
 public class D1_Cyclic_Sort {
@@ -17,9 +16,7 @@ public class D1_Cyclic_Sort {
 			int correct =arr[i]-1;
 			if(arr[i] != arr[correct])
 			{
-				int temp = arr[i];
-				arr[i] = arr[correct];
-				arr[correct] = temp;
+				swap(arr, i, correct);
 			}
 			else
 			{
@@ -27,8 +24,13 @@ public class D1_Cyclic_Sort {
 			}
 		}
 	}
+	
+	static void swap(int [] arr, int first , int second)
+	{
+		int temp = arr[first];
+		arr[first] = arr[second];
+		arr[second] = temp;
+	}
 }
-
-
 //notes:
 //	1. this algorithm uses only one for loop or while loop 
