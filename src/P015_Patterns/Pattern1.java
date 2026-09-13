@@ -2,13 +2,13 @@ package P015_Patterns;
 
 public class Pattern1 {
 	public static void main(String[] args) {
-//		patterns1(5);
-//		pattern2(5);
-//		pattern3(5);
-//		pattern4(5);
-//		pattern5(5);
-//		pattern6(5);
-//		pattern7(5);
+		patterns1(5);
+		pattern2(5);
+		pattern3(5);
+		pattern4(5);
+		pattern5(5);
+		pattern6(5);
+		pattern7(5);
 		pattern8(5);
 		
 	}
@@ -23,7 +23,7 @@ public class Pattern1 {
 			}
 			System.out.println();
 		}
-		System.out.println("pattern completed");
+		System.out.println("pattern1 completed");
 	}
 //	*****
 //	*****
@@ -41,7 +41,7 @@ public class Pattern1 {
 			}
 			System.out.println();
 		}
-		System.out.println("pattern completed");
+		System.out.println("pattern2 completed");
 	}
 //	*
 //	**
@@ -241,5 +241,6 @@ public class Pattern1 {
 	            System.out.println();
 	        }
 	    }
+	    System.out.println("pattern8 completed");
 	}
 	}
