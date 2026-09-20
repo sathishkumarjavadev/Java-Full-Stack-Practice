@@ -11,5 +11,6 @@ public class A1_Sum {
 		b = obj.nextInt();
 		sum=a+b;
 		System.out.println("sum ="+sum);
+		obj.close();
 	}
 }

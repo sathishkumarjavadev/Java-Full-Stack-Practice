@@ -12,10 +12,11 @@ public class A3_Numbers_example3 {
 			System.out.println(n);
 			return;
 		}
-		System.out.println(n);
-		print(n+1);
+		else
+		{
+			System.out.println(n);
+			print(n+1);
+		}
 	}
-	
 }
-
 //function calling another function
