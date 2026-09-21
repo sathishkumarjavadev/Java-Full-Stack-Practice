@@ -1,22 +1,20 @@
 package p017_Tasks_and_Practice.T1_Basics;
 
-public class A32_First_Digit {
-	
-	public static void main(String[] args) {
-		
-	}
-	static int num(int num)
+public class A32_First_Digit 
+{
+	public static void main(String[] args)
 	{
-		int first_digit;
-		while(num!=0)
+		num2(3452);
+	}
+	static void num2(int num)
+	{
+		while (num >= 10) 
 		{
-			
-		}
-		return num;
-		
+			num = num / 10;
+			}
+		System.out.println(num);
 	}
 }
-
 //example
 //input - 8374
 //output - 8
