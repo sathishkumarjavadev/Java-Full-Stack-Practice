@@ -2,7 +2,7 @@ package p017_Tasks_and_Practice.T1_Basics;
 
 import java.util.Scanner;
 
-public class A9_Cube_of_a_number {
+public class A09_Cube_of_a_number {
     public static void main(String[] args) {
         Scanner obj = new Scanner(System.in);
         float num;

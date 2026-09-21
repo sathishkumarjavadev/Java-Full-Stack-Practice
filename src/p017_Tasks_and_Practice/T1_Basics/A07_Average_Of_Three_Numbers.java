@@ -2,7 +2,7 @@ package p017_Tasks_and_Practice.T1_Basics;
 
 import java.util.Scanner;
 
-public class A7_Average_Of_Three_Numbers {
+public class A07_Average_Of_Three_Numbers {
 
     public static void main(String[] args) {
         

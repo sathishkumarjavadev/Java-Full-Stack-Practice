@@ -2,7 +2,7 @@ package p017_Tasks_and_Practice.T1_Basics;
 
 import java.util.Scanner;
 
-public class A5_Modulo {
+public class A05_Modulo {
     public static void main(String[] args) {
         int a,b;
         Scanner obj = new Scanner(System.in);

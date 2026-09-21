@@ -2,7 +2,7 @@ package p017_Tasks_and_Practice.T1_Basics;
 
 import java.util.Scanner;
 
-public class A6_Average_of_Two_Numbers {
+public class A06_Average_of_Two_Numbers {
     public static void main(String[] args) {
         Scanner obj = new Scanner(System.in);
         int a, b;
