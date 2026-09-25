@@ -1,4 +1,4 @@
-package P016_Recursion;
+package P016_Recursion.R01_Basics;
 
 public class A6_Print_n_to_1_rev {
 

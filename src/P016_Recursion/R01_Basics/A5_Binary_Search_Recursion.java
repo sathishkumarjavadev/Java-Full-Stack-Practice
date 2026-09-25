@@ -1,4 +1,4 @@
-package P016_Recursion;
+package P016_Recursion.R01_Basics;
 
 public class A5_Binary_Search_Recursion {
     public static void main(String[] args) 

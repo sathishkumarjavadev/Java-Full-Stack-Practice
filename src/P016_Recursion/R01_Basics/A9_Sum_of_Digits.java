@@ -1,4 +1,4 @@
-package P016_Recursion;
+package P016_Recursion.R01_Basics;
 
 public class A9_Sum_of_Digits {
 
